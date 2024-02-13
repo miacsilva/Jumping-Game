@@ -1,6 +1,6 @@
 # Jumping-Game
 
-Google Chrome's T-rex inspiered
+Google Chrome's T-rex game inspired
 
 ## The team
 
