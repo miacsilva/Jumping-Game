@@ -3,6 +3,7 @@ const gameContainer = document.querySelector('.game-container');
 let score = 0;
 let isJumping = false;
 let isGameOver = false;
+let obstacleIntervals = []; 
 
 function jump() {
     if (!isJumping && !isGameOver) {
@@ -75,6 +76,9 @@ function generateObstacle() {
             obstaclePosition -= 10;
             obstacleElem.style.left = obstaclePosition + 'px';
         }, 20);
+
+        
+        obstacleIntervals.push(obstacleMoveInterval);
     }
 }
 
@@ -84,6 +88,12 @@ function gameOver() {
 }
 
 function restartGame() {
+    
+    obstacleIntervals.forEach(interval => clearInterval(interval));
+    obstacleIntervals = []; 
+    const obstacles = document.querySelectorAll('.obstacle');
+    obstacles.forEach(obstacle => obstacle.remove());
+    
     isGameOver = false;
     score = 0;
     scoreDisplay.innerText = 'Score: ' + score;
@@ -95,3 +105,4 @@ scoreDisplay.innerText = 'Score: ' + score;
 gameContainer.appendChild(scoreDisplay);
 
 setInterval(generateObstacle, 2000);
+
