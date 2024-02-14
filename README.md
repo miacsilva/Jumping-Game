@@ -1,6 +1,6 @@
 # Jumping-Game
 
-Google Chrome's T-rex inspiered
+Google Chrome's T-rex game inspired
 
 ## The team
 
@@ -27,7 +27,7 @@ Google Chrome's T-rex inspiered
 ## File Structure
 
 - `index.html`:
-- `script.js`: 
+- `app.js`: 
 - `style.css`:
 - `README.md`: This file providing instructions and information about the game.
 
