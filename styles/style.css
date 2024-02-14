@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "rainyHearts";
+    src: url(../rainyhearts.ttf);
+  }
+
 body,
 html {
   margin: 0;
@@ -34,6 +39,7 @@ html {
 }
 
 .score-display {
+    font-family: "rainyHearts", Verdana, Geneva, Tahoma, sans-serif;
     position: absolute;
     top: 10px;
     left: 10px;

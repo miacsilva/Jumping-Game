@@ -70,7 +70,7 @@ function generateObstacle() {
 
             if (obstaclePosition === 50) {
                 score++;
-                scoreDisplay.innerText = 'Score: ' + score;
+                scoreDisplay.innerText = 'SCORE: ' + score;
             }
 
             obstaclePosition -= 10;
@@ -96,12 +96,12 @@ function restartGame() {
     
     isGameOver = false;
     score = 0;
-    scoreDisplay.innerText = 'Score: ' + score;
+    scoreDisplay.innerText = 'SCORE: ' + score;
 }
 
 const scoreDisplay = document.createElement('div');
 scoreDisplay.classList.add('score-display');
-scoreDisplay.innerText = 'Score: ' + score;
+scoreDisplay.innerText = 'SCORE: ' + score;
 gameContainer.appendChild(scoreDisplay);
 
 setInterval(generateObstacle, 2000);
