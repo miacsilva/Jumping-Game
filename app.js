@@ -1,13 +1,14 @@
-const character = document.getElementById('character');
+const character = document.querySelector('#character');
+console.log(character)
 const gameContainer = document.querySelector('.game-container');
 let score = 0;
 let isJumping = false;
-let isGameOver = false;
-let obstacleIntervals = []; 
+let isGameOver = false;       
+let obstacleIntervals = [];     
 
 function jump() {
     if (!isJumping && !isGameOver) {
-        isJumping = true;
+        isJumping = true; 
         let jumpCount = 0;
         const jumpInterval = setInterval(() => {
             const characterBottom = parseInt(window.getComputedStyle(character).getPropertyValue('bottom'));
