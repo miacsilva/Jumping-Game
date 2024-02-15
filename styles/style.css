@@ -21,13 +21,13 @@ html {
   margin: 0 auto;
 }
 
-#character {
+.character {
   position: absolute;
   bottom: 0;
   left: 50px;
   width: 50px;
   height: 50px;
-  background-color: #100d0d;
+  /* background-color: #100d0d; */
 }
 
 .obstacle {
@@ -35,7 +35,7 @@ html {
   bottom: 0;
   width: 50px;
   height: 50px;
-  background-color: #b807db;
+  /* background-color: #b807db; */
 }
 .distance-display {
   font-family: 'rainyHearts', Verdana, Geneva, Tahoma, sans-serif;

@@ -1,4 +1,10 @@
-const character = document.getElementById('character');
+const character = document.querySelector('.character');
+console.log(character);
+const characterImages = [
+  './styles/images/pngwing.com.png',
+  './styles/images/pngwing.com (1).png',
+  './styles/images/pngwing.com (3).png',
+];
 const gameContainer = document.querySelector('.game-container');
 const distanceDisplay = document.querySelector('.distance-display');
 
@@ -6,11 +12,19 @@ let score = 0;
 let isJumping = false;
 let isGameOver = false;
 let obstacleIntervals = [];
+let currentIndex = 0;
 
 const scoreDisplay = document.createElement('div');
 scoreDisplay.classList.add('score-display');
 scoreDisplay.innerText = 'SCORE: ' + score;
 gameContainer.appendChild(scoreDisplay);
+
+function changeImage() {
+  character.src = characterImages[currentIndex];
+  currentIndex = (currentIndex + 1) % characterImages.length;
+}
+
+setInterval(changeImage, 100);
 
 function jump() {
   if (!isJumping && !isGameOver) {
@@ -20,9 +34,9 @@ function jump() {
       const characterBottom = parseInt(
         window.getComputedStyle(character).getPropertyValue('bottom')
       );
-      if (characterBottom < 200 && jumpCount < 20) {
+      if (characterBottom < 150 && jumpCount < 15) {
         character.style.bottom = characterBottom + 15 + 'px';
-      } else if (jumpCount >= 20) {
+      } else if (jumpCount >= 15) {
         clearInterval(jumpInterval);
         const fallInterval = setInterval(() => {
           const characterBottom = parseInt(
@@ -47,19 +61,27 @@ document.addEventListener('keydown', (event) => {
       restartGame();
     } else {
       jump();
+      changeImage();
     }
   }
 });
 
 function generateObstacle() {
   if (!isGameOver) {
-    const obstacleElem = document.createElement('div');
+    const obstacleImages = [
+      './styles/images/cactus.png',
+      './styles/images/cactusYellow.png',
+      './styles/images/cactusGreen.png',
+    ];
+    const obstacleElem = document.createElement('img');
     obstacleElem.classList.add('obstacle');
-    obstacleElem.style.left = '800px';
+    const randomIndex = Math.floor(Math.random() * obstacleImages.length);
+    obstacleElem.src = obstacleImages[randomIndex];
+    obstacleElem.style.left = '500px';
     obstacleElem.style.bottom = '0px';
     gameContainer.appendChild(obstacleElem);
 
-    let obstaclePosition = Math.floor(Math.random() * (500 - 100 + 1)) + 200;
+    let obstaclePosition = 500;
     let hasScored = false; // Flag to check if obstacle has already been scored
 
     const obstacleMoveInterval = setInterval(() => {
