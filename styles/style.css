@@ -13,15 +13,15 @@ html {
   align-items: center;
 }
 
-.game-container {
+.game-container { 
   position: relative;
-  width: 500px;
+  width: 500px; 
   height: 200px;
   background-color: #f0f0f0;
   margin: 0 auto;
 }
 
-#character {
+.character {
   position: absolute;
   bottom: 0;
   left: 50px;

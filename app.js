@@ -1,10 +1,23 @@
-const character = document.querySelector('#character');
+const character = document.querySelector ('.character');
 console.log(character)
+const characterImages = [
+    './styles/images/pngwing.com.png',
+    './styles/images/pngwing.com (1).png',
+    './styles/images/pngwing.com (3).png'
+  ];
 const gameContainer = document.querySelector('.game-container');
 let score = 0;
 let isJumping = false;
 let isGameOver = false;       
 let obstacleIntervals = [];     
+let currentIndex = 0;
+
+function changeImage() {
+    character.src = characterImages[currentIndex];
+    currentIndex = (currentIndex + 1) % characterImages.length; 
+}
+
+setInterval(changeImage, 100); 
 
 function jump() {
     if (!isJumping && !isGameOver) {
@@ -37,6 +50,7 @@ document.addEventListener('keydown', (event) => {
             restartGame();
         } else {
             jump();
+            changeImage();  
         }
     }
 });
