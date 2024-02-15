@@ -43,8 +43,9 @@ document.addEventListener('keydown', (event) => {
 
 function generateObstacle() {
     if (!isGameOver) {
-        const obstacleElem = document.createElement('div');
+        const obstacleElem = document.createElement('img');
         obstacleElem.classList.add('obstacle');
+        obstacleElem.src = "./styles/images/cactus.png"; // Set the path to your obstacle image
         obstacleElem.style.left = '500px';
         obstacleElem.style.bottom = '0px';
         gameContainer.appendChild(obstacleElem);
