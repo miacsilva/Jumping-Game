@@ -227,9 +227,6 @@ window.onload = function () {
   context = board.getContext("2d"); //used for drawing on the board
 
   //draw initial dinosaur
-  // context.fillStyle="green";
-  // context.fillRect(dino.x, dino.y, dino.width, dino.height);
-
   dinoImg = new Image();
   dinoImg.src = "./styles/images/dino.png";
   dinoImg.onload = function () {
@@ -245,10 +242,18 @@ window.onload = function () {
   cactus3Img = new Image();
   cactus3Img.src = "./styles/images/cactus3.png";
 
-  requestAnimationFrame(update);
-  setInterval(placeCactus, 1000); //1000 milliseconds = 1 second
-  document.addEventListener("keydown", moveDino);
+  // Ensure all images are loaded before starting the game
+  Promise.all([
+    new Promise(resolve => dinoImg.onload = resolve),
+    new Promise(resolve => cactus1Img.onload = resolve),
+    new Promise(resolve => cactus2Img.onload = resolve),
+    new Promise(resolve => cactus3Img.onload = resolve)
+  ]).then(() => {
+    requestAnimationFrame(update);
+    setInterval(placeCactus, 1000); //1000 milliseconds = 1 second
+  });
 
+  document.addEventListener("keydown", moveDino);
 };
 
 function update() {
@@ -366,11 +371,11 @@ function detectCollision(a, b) {
     // Draw the updated score
     context.fillStyle = "black";
     context.font = "20px courier";
+    context.fillText("Score: " + score, 5, 20);
   }
 
   return collision;
 }
-
 
 function restartGame() {
   gameOver = false;
@@ -386,9 +391,5 @@ function restartGame() {
   // Clear the canvas
   context.clearRect(0, 0, board.width, board.height);
 
-  // Draw the initial dinosaur
-  context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
-
-  // Restart the game loop
-  requestAnimationFrame(update);
+  // Draw
 }
