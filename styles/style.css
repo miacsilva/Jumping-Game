@@ -1,49 +1,20 @@
 @font-face {
-    font-family: "rainyHearts";
-    src: url(../rainyhearts.ttf);
-  }
+  font-family: 'rainyHearts';
+  src: url(../rainyhearts.ttf);
+}
 
-body,
-html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+body {
+  font-family: "rainyHearts",'Courier New', Courier, monospace;
+  text-align: center;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
 }
 
-.game-container {
-  position: relative;
-  width: 500px;
-  height: 200px;
-  background-color: #f0f0f0;
-  margin: 0 auto;
+#board {
+  background-color: lightgray;
+  border-bottom: 1px solid black;
 }
-
-#character {
-  position: absolute;
-  bottom: 0;
-  left: 50px;
-  width: 50px;
-  height: 50px;
-  /* background-color: #100d0d; */
-}
-
-.obstacle {
-  position: absolute;
-  bottom: 0;
-  width: 50px;
-  height: 50px;
-  /*  background-color: #b807db;  */
-} 
-
-.score-display {
-    font-family: "rainyHearts", Verdana, Geneva, Tahoma, sans-serif;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 18px;
-    color: #333;
-}
-

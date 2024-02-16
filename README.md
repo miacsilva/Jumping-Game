@@ -1,6 +1,6 @@
 # Jumping-Game
 
-Google Chrome's T-rex game inspired
+Google Chrome's T-rex game inspired with a twist!
 
 ## The team
 
@@ -9,27 +9,26 @@ Google Chrome's T-rex game inspired
 - Telman Yusifov
 - Xhoani Sadaj
 
+## Gameplay
+
+- **Controls**: The player can control the dinosaur using the following keyboard keys:
+  - **Spacebar** or **Arrow Up**: Jump
+  - **Arrow Down**: Duck (Not implemented in this version)
+- The dinosaur automatically moves forward, and the player's objective is to avoid incoming obstacles.
+- Obstacles in this game are represented by different types of cacti.
+
 ## How to Play
 
-1. **Getting Started**: 
-
-2. **Game Rules**:
-
-3. **Winning the Game**: 
+1. Clone or download the repository to your local machine.
+2. Open the `index.html` file in a web browser that supports HTML5 canvas.
+3. Press **Spacebar** or **Arrow Up** to make the dinosaur jump over obstacles.
+4. Survive as long as you can and try to achieve the highest score possible!
 
 ## Technologies Used
 
 - JavaScript
 - HTML
 - CSS
-
-
-## File Structure
-
-- `index.html`:
-- `app.js`: 
-- `style.css`:
-- `README.md`: This file providing instructions and information about the game.
 
 ## Preview Link
 
