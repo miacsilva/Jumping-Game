@@ -1,4 +1,4 @@
-# Jumping-Game
+# Brankossaur Jumping-Game
 
 Google Chrome's T-rex game inspired with a twist!
 
@@ -13,7 +13,6 @@ Google Chrome's T-rex game inspired with a twist!
 
 - **Controls**: The player can control the dinosaur using the following keyboard keys:
   - **Spacebar** or **Arrow Up**: Jump
-  - **Arrow Down**: Duck (Not implemented in this version)
 - The dinosaur automatically moves forward, and the player's objective is to avoid incoming obstacles.
 - Obstacles in this game are represented by different types of cacti.
 
