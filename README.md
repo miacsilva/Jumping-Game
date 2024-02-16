@@ -32,3 +32,5 @@ Google Chrome's T-rex game inspired with a twist!
 
 ## Preview Link
 
+https://miacsilva.github.io/Jumping-Game/
+
