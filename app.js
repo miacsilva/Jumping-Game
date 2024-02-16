@@ -261,7 +261,7 @@ function update() {
   if (gameOver) {
     context.clearRect(0, 0, board.width, board.height);
     context.fillStyle = "black";
-    context.font = "20px courier";
+    context.font = "20px courier";   
     context.fillText("Game Over! Your score: " + score, 250, 100);
     context.fillText("Press space to restart", 250, 150);
     return;
@@ -326,7 +326,7 @@ function placeCactus() {
   //place cactus
   let cactus = {
     img: null,
-    x: cactusX,
+    x: cactusX,     
     y: cactusY,
     width: null,
     height: cactusHeight,
@@ -378,6 +378,7 @@ function detectCollision(a, b) {
 }
 
 function restartGame() {
+
   gameOver = false;
   score = 0;
   velocityY = 0;
@@ -391,5 +392,5 @@ function restartGame() {
   // Clear the canvas
   context.clearRect(0, 0, board.width, board.height);
 
-  // Draw
+
 }
