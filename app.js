@@ -49,9 +49,21 @@ window.onload = function () {
 
   context = board.getContext("2d"); //used for drawing on the board
 
+  const characterImages = [
+    './styles/images/branko1.png',
+    './styles/images/branko2.png'
+  ];
+
+setInterval(changeImage, 100);
+
   //draw initial dinosaur
   dinoImg = new Image();
-  dinoImg.src = "./styles/images/branko1.png";
+  let currentIndex = 0;
+function changeImage() {
+    dinoImg.src = characterImages[currentIndex];
+    currentIndex = (currentIndex + 1) % characterImages.length; 
+}
+  /* dinoImg.src = "./styles/images/branko1.png"; */
   dinoImg.onload = function () {
     context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
   };
