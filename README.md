@@ -11,7 +11,7 @@ Google Chrome's T-rex game inspired with a twist!
 
 ## Gameplay
 
-- **Controls**: The player can control the dinosaur using the following keyboard keys:
+- **Controls**: The player can control the dinosaur using the following keyboard key:
   - **Spacebar**: Jump
 - The dinosaur automatically moves forward, and the player's objective is to avoid incoming obstacles.
 - Obstacles in this game are represented by different types of cacti.
