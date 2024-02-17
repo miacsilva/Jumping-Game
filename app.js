@@ -107,11 +107,10 @@ window.onload = function () {
       return;
     }
 
-    // Jump
-    if(e.code == "Space" && dino.y == dinoY){
-    speedyY = -10;
-    }
-     
+    if (e.code == "Space" && dino.y == dinoY) {
+      // Jump
+      speedyY = -10;
+     }
   }
 
   document.addEventListener("keydown", moveDino);
