@@ -12,9 +12,15 @@ body {
   justify-content: center;
   height: 100vh;
   margin: 0;
+  background-color: black;
 }
 
-#board {
-  background-color: lightgray;
+#game {
+  background-color: rgb(202, 255, 238);
   border-bottom: 1px solid black;
+}
+
+.gameTitle{
+  z-index: 100;
+  color: rgb(202, 255, 238);
 }
