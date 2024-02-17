@@ -114,7 +114,7 @@ function update() {
   requestAnimationFrame(update);
   if (gameOver) {
     context.clearRect(0, 0, game.width, game.height);
-    document.getElementById("game-over-text").textContent = "Oh no! The dinosaur got caught!";
+    document.getElementById("game-over-text").textContent = "Oh no! The Brankossaur got caught!";
     document.getElementById("score-text").textContent = "Your score: " + score;
     document.getElementById("restart-text").textContent = "Press space to restart and help it escape!";
     document.getElementById("game-over-message").style.display = "block";
