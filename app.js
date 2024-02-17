@@ -21,7 +21,6 @@ let dino = {
 let cactus1Img;
 let cactus2Img;
 let cactus3Img;
-
 let cactusArray = [];
 let cactus1Width = 34;
 let cactus2Width = 69;
@@ -39,7 +38,7 @@ let gameOver = false;
 let score = 0;
 
 game = document.getElementById("game");
-context = game.getContext("2d"); //used for drawing on the game
+context = game.getContext("2d");    
 game.height = gameHeight;
 game.width = gameWidth;
 
@@ -86,7 +85,7 @@ window.onload = function () {
   cactus3Img = new Image();
   cactus3Img.src = "./styles/images/cactus3.png";
 
-  // Ensure all images are loaded before starting the game
+  // loading all images before starting the game
   Promise.all([
     new Promise((resolve) => (dinoImg.onload = resolve)),
     new Promise((resolve) => (cactus1Img.onload = resolve)),
@@ -102,13 +101,7 @@ window.onload = function () {
       restartGame();
       return;
     }
-
-    if (gameOver) {
-      return;
-    }
-
     if (e.code == "Space" && dino.y == dinoY) {
-      // Jump
       speedyY = -10;
      }
   }
@@ -121,13 +114,14 @@ function update() {
   requestAnimationFrame(update);
   if (gameOver) {
     context.clearRect(0, 0, game.width, game.height);
-    context.fillStyle = "black";
-    context.font = "20px courier";
-    context.fillText("Game Over! Your score: " + score, 250, 100);
-    context.fillText("Press space to restart", 250, 150);
+    document.getElementById("game-over-text").textContent = "Oh no! The dinosaur got caught!";
+    document.getElementById("score-text").textContent = "Your score: " + score;
+    document.getElementById("restart-text").textContent = "Press space to restart and help it escape!";
+    document.getElementById("game-over-message").style.display = "block";
     return;
   }
   context.clearRect(0, 0, game.width, game.height);
+  document.getElementById("game-over-message").style.display = "none";
 
   // Draw background
   context.drawImage(treeBackground, treeX, 0);
@@ -150,7 +144,6 @@ function update() {
 
     if (detectCollision(dino, cactus)) {
       gameOver = true;
-      dinoImg.src = "./styles/images/dino-dead.png";
       dinoImg.onload = function () {
         context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
       };
@@ -165,7 +158,7 @@ function update() {
   // Score
   context.fillStyle = "black";
   context.font = "20px courier";
-  context.fillText("Score: " + score, 5, 20);
+  context.fillText("SCORE: " + score, 20, 30);
 }
 
 function placeCactus() {
@@ -184,17 +177,17 @@ function placeCactus() {
   let placeCactusChance = Math.random();
 
   if (placeCactusChance > 0.9) {
-    //10% you get cactus3
+    //10% triple cactus img 
     cactus.img = cactus3Img;
     cactus.width = cactus3Width;
     cactusArray.push(cactus);
   } else if (placeCactusChance > 0.7) {
-    //30% you get cactus2
+    //35% double cactus img
     cactus.img = cactus2Img;
     cactus.width = cactus2Width;
     cactusArray.push(cactus);
-  } else if (placeCactusChance > 0.5) {
-    //50% you get cactus1
+  } else if (placeCactusChance > 0.45) {
+    //45% 1 cactus img
     cactus.img = cactus1Img;
     cactus.width = cactus1Width;
     cactusArray.push(cactus);
@@ -216,11 +209,8 @@ function detectCollision(a, b) {
   // Check if dinosaur passed the cactus
   if (!b.passed && a.x > b.x + b.width) {
     b.passed = true;
-    score++; // Increment score when the dinosaur passes the cactus
-    // Draw the updated score
-    context.fillStyle = "black";
-    context.font = "20px courier";
-    context.fillText("Score: " + score, 5, 20);
+    score++;
+
   }
   return collision;
 }
