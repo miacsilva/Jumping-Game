@@ -82,15 +82,8 @@ window.onload = function () {
   cactus3Img = new Image();
   cactus3Img.src = "./styles/images/cactus3.png";
 
-  Promise.all([
-    new Promise((resolve) => (dinoImg.onload = resolve)),
-    new Promise((resolve) => (cactus1Img.onload = resolve)),
-    new Promise((resolve) => (cactus2Img.onload = resolve)),
-    new Promise((resolve) => (cactus3Img.onload = resolve)),
-  ]).then(() => {
-    requestAnimationFrame(update);
-    setInterval(placeCactus, 1000);
-  });
+  requestAnimationFrame(update);
+  setInterval(placeCactus, 1000);
 
   function moveDino(e) {
     if (gameOver && e.code === "Space") {
