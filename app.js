@@ -1,10 +1,8 @@
-//game
 let game;
 let gameWidth = 750;
 let gameHeight = 250;
 let context;
 
-//dinossaur
 let dinoWidth = 88;
 let dinoHeight = 94;
 let dinoX = 50;
@@ -17,7 +15,6 @@ let dino = {
   height: dinoHeight,
 };
 
-//cactus
 let cactus1Img;
 let cactus2Img;
 let cactus3Img;
@@ -30,7 +27,7 @@ let cactusX = 700;
 let cactusY = gameHeight - cactusHeight;
 
 
-let speedyX = -8; //cactus moving left speed
+let speedyX = -8; 
 let speedyY = 0;
 let gravity = 0.4;
 
@@ -56,9 +53,9 @@ window.onload = function () {
     context.clearRect(0, 0, gameWidth, gameHeight);
     treeX--;
     context.drawImage(treeBackground, treeX, 0);
-    context.drawImage(treeBackground, treeX + gameWidth, 0); // Draw a second image to create a continuous loop
+    context.drawImage(treeBackground, treeX + gameWidth, 0);
     if (treeX <= -gameWidth) {
-      treeX = 0; // Reset the position to create a continuous loop
+      treeX = 0; 
     }
     requestAnimationFrame(animateBackground);
   }
@@ -85,7 +82,6 @@ window.onload = function () {
   cactus3Img = new Image();
   cactus3Img.src = "./styles/images/cactus3.png";
 
-  // loading all images before starting the game
   Promise.all([
     new Promise((resolve) => (dinoImg.onload = resolve)),
     new Promise((resolve) => (cactus1Img.onload = resolve)),
@@ -123,14 +119,12 @@ function update() {
   context.clearRect(0, 0, game.width, game.height);
   document.getElementById("game-over-message").style.display = "none";
 
-  // Draw background
   context.drawImage(treeBackground, treeX, 0);
   context.drawImage(treeBackground, treeX + gameWidth, 0);
   if (treeX <= -gameWidth) {
     treeX = 0;
   }
 
-  // Draw cactus
   for (let i = 0; i < cactusArray.length; i++) {
     let cactus = cactusArray[i];
     cactus.x += speedyX;
@@ -150,12 +144,10 @@ function update() {
     }
   }
 
-  // Draw dinosaur
   speedyY += gravity;
   dino.y = Math.min(dino.y + speedyY, dinoY);
   context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
 
-  // Score
   context.fillStyle = "black";
   context.font = "20px courier";
   context.fillText("SCORE: " + score, 20, 30);
@@ -177,36 +169,31 @@ function placeCactus() {
   let placeCactusChance = Math.random();
 
   if (placeCactusChance > 0.9) {
-    //10% triple cactus img 
     cactus.img = cactus3Img;
     cactus.width = cactus3Width;
     cactusArray.push(cactus);
   } else if (placeCactusChance > 0.7) {
-    //35% double cactus img
     cactus.img = cactus2Img;
     cactus.width = cactus2Width;
     cactusArray.push(cactus);
   } else if (placeCactusChance > 0.45) {
-    //45% 1 cactus img
     cactus.img = cactus1Img;
     cactus.width = cactus1Width;
     cactusArray.push(cactus);
   }
 
   if (cactusArray.length > 5) {
-    cactusArray.shift(); //remove the first element from the array
+    cactusArray.shift();
   }
 }
 
 function detectCollision(a, b) {
-  // Check if dinosaur collides with the cactus
   let collision =
     a.x < b.x + b.width &&
     a.x + a.width > b.x &&
     a.y < b.y + b.height &&
     a.y + a.height > b.y;
 
-  // Check if dinosaur passed the cactus
   if (!b.passed && a.x > b.x + b.width) {
     b.passed = true;
     score++;
