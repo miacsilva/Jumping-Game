@@ -20,7 +20,7 @@ Google Chrome's T-rex game inspired with a twist!
 
 1. Clone or download the repository to your local machine.
 2. Open the `index.html` file in a web browser that supports HTML5 canvas.
-3. Press **Spacebar** or **Arrow Up** to make the dinosaur jump over obstacles.
+3. Press **Spacebar** to make the dinosaur jump over obstacles.
 4. Survive as long as you can and try to achieve the highest score possible!
 
 ## Technologies Used
